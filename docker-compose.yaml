@@ -1,0 +1,34 @@
+version: '3'
+services:
+  # container for API
+  traefik:
+    restart: always
+    image: traefik:latest
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./deployment/certs:/certs:ro
+      - ./deployment/traefik/traefik.yml:/traefik.yml:ro
+      - ./deployment/traefik/tls.yml:/tls.yml:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.traefik.tls=true
+      - traefik.http.routers.traefik.service=traefik
+  app:
+    extends:
+      file: ./deployment/common.yaml
+      service: app
+    labels:
+      - "traefik.enable=true"
+      - traefik.http.routers.traefik.entrypoints=http,https
+      # URL to reach this container
+      - "traefik.http.routers.app.rule=Host(`localhost`)"
+      # Activation of TLS
+      - "traefik.http.routers.app.tls=true"
+  db:
+    extends:
+      file: ./deployment/common.yaml
+      service: db
