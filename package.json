@@ -21,5 +21,11 @@
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
     },
-    "version": "1.1.2"
+    "standard-version": {
+        "skip": {
+            "tag": true,
+            "commit": true
+        }
+    },
+    "version": "1.2.0-0"
 }
