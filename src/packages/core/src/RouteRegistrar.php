@@ -34,7 +34,9 @@ class RouteRegistrar
      *
      * @return void
      */
-    public function all() {}
+    public function all()
+    {
+    }
 
     /**
      * Binds the routes into the controller.

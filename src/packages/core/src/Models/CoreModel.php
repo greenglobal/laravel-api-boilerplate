@@ -9,7 +9,6 @@ use GGPHP\Core\Traits\BootPresentTrait;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\Traits\CausesActivity;
 
-
 class CoreModel extends Model implements Presentable
 {
     use CastDatetimeFormatTrait, LogsActivity, CausesActivity, BootPresentTrait;

@@ -27,16 +27,19 @@ trait ExceptionRenderTrait
     public function render($request, Throwable $e)
     {
         $data = [
-            'status' => $e instanceof HttpException ? $e->getStatusCode() : config('constants.HTTP_STATUS_CODE.SERVER_ERROR'),
+            'status' => $e instanceof HttpException ? $e->getStatusCode()
+                : config('constants.HTTP_STATUS_CODE.SERVER_ERROR'),
             'title' => trans('lang::messages.common.occurError'),
-            'errors' => [[
-                'title' => trans('lang::messages.common.serverError'),
-                'detail' => $e->getMessage() ?: ('An exception of ' . get_class($e)),
-            ]],
+            'errors' => [
+                [
+                    'title' => trans('lang::messages.common.serverError'),
+                    'detail' => $e->getMessage() ?: ('An exception of ' . get_class($e)),
+                ]
+            ]
         ];
 
         if ($e instanceof NotEnabledTransitionException) {
-             $data = array_merge($data, [
+            $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.BAD_REQUEST'),
                 'errors' => [[
                     'title' => trans('lang::messages.common.badRequest'),
@@ -46,7 +49,7 @@ trait ExceptionRenderTrait
         }
 
         if ($e instanceof UndefinedTransitionException) {
-             $data = array_merge($data, [
+            $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.BAD_REQUEST'),
                 'errors' => [[
                     'title' => trans('lang::messages.common.badRequest'),

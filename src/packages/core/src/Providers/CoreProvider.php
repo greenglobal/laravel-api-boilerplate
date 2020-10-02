@@ -4,7 +4,7 @@ namespace GGPHP\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class FingerprintProvider extends ServiceProvider
+class CoreProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -19,7 +19,7 @@ class FingerprintProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->publishes([
-            __DIR__.'/../../config/config.php' => config_path('core.php')
+            __DIR__.'/../../config/config.php' => config_path('core.php'),
         ]);
         $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'core');
         // Publishing the views.

@@ -5,9 +5,9 @@ namespace GGPHP\Core;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \GGPHP\Core\Skeleton\SkeletonClass
+ * @see \GGPHP\Core
  */
-class Core extends Facade
+class CoreFacade extends Facade
 {
     /**
      * Get the registered name of the component.
