@@ -12,8 +12,8 @@ class CoreProvider extends ServiceProvider
     public function boot()
     {
         /*
-         * Optional methods to load your package assets
-         */
+        * Optional methods to load your package assets
+        */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'users');
         // $this->loadViewsFrom(__DIR__.'/../resources/views', 'users');
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -24,17 +24,17 @@ class CoreProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'core');
         // Publishing the views.
         /*$this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/users'),
+        __DIR__.'/../resources/views' => resource_path('views/vendor/users'),
         ], 'views');*/
 
         // Publishing assets.
         /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/users'),
+        __DIR__.'/../resources/assets' => public_path('vendor/users'),
         ], 'assets');*/
 
         // Publishing the translation files.
         /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/users'),
+        __DIR__.'/../resources/lang' => resource_path('lang/vendor/users'),
         ], 'lang');*/
 
         // Registering package commands.

@@ -16,6 +16,7 @@ trait ApprovalTransformerTrait
         if (!$model->approvalRequest) {
             return;
         }
+
         return $this->item($model->approvalRequest, new ApprovalTransformer, 'Approval');
     }
 }

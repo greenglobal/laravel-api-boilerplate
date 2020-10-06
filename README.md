@@ -15,6 +15,7 @@ The api boilerplate build on Laravel 8, this using to start a project with api f
 ### 2. Run test & linter
 
 > docker-compose exec <container_app_name> vendor/bin/phpunit
+
 > docker-compose exec <container_app_name> vendor/bin/phpcs
 
 ### 3. Run fixer for coding style
@@ -28,7 +29,9 @@ The api boilerplate build on Laravel 8, this using to start a project with api f
 ### 5. Commit an task
 
 > git add </file>
+
 > cz
+
 > git push to branch
 
 ---
