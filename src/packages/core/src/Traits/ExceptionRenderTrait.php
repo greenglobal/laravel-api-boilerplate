@@ -34,67 +34,79 @@ trait ExceptionRenderTrait
                 [
                     'title' => trans('lang::messages.common.serverError'),
                     'detail' => $e->getMessage() ?: ('An exception of ' . get_class($e)),
-                ]
-            ]
+                ],
+            ],
         ];
 
         if ($e instanceof NotEnabledTransitionException) {
             $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.BAD_REQUEST'),
-                'errors' => [[
-                    'title' => trans('lang::messages.common.badRequest'),
-                    'detail' => $e->getMessage(),
-                ]],
+                'errors' => [
+                    [
+                        'title' => trans('lang::messages.common.badRequest'),
+                        'detail' => $e->getMessage(),
+                    ],
+                ],
             ]);
         }
 
         if ($e instanceof UndefinedTransitionException) {
             $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.BAD_REQUEST'),
-                'errors' => [[
-                    'title' => trans('lang::messages.common.badRequest'),
-                    'detail' => $e->getMessage(),
-                ]],
+                'errors' => [
+                    [
+                        'title' => trans('lang::messages.common.badRequest'),
+                        'detail' => $e->getMessage(),
+                    ],
+                ],
             ]);
         }
 
         if ($e instanceof AuthorizationException) {
             $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.PERMISSION_DENIED'),
-                'errors' => [[
-                    'title' => trans('lang::messages.common.permissionDenied'),
-                    'detail' => $e->getMessage(),
-                ]],
+                'errors' => [
+                    [
+                        'title' => trans('lang::messages.common.permissionDenied'),
+                        'detail' => $e->getMessage(),
+                    ],
+                ],
             ]);
         }
 
         if ($e instanceof UnauthorizedException || $e instanceof AuthenticationException) {
             $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.UNAUTHORIZED'),
-                'errors' => [[
-                    'title' => trans('lang::messages.common.unauthorized'),
-                    'detail' => $e->getMessage() ?: trans('lang::messages.common.unauthorized'),
-                ]],
+                'errors' => [
+                    [
+                        'title' => trans('lang::messages.common.unauthorized'),
+                        'detail' => $e->getMessage() ?: trans('lang::messages.common.unauthorized'),
+                    ],
+                ],
             ]);
         }
 
         if ($e instanceof ModelNotFoundException) {
             $data = array_merge($data, [
                 'status' => config('constants.HTTP_STATUS_CODE.NOT_FOUND'),
-                'errors' => [[
-                    'title' => trans('lang::messages.common.notFoundError'),
-                    'detail' => trans('lang::messages.common.notFoundModel'),
-                ]],
+                'errors' => [
+                    [
+                        'title' => trans('lang::messages.common.notFoundError'),
+                        'detail' => trans('lang::messages.common.notFoundModel'),
+                    ],
+                ],
             ]);
         }
 
         if ($e instanceof HttpException) {
             $data = array_merge($data, [
                 'status' => $e->getStatusCode(),
-                'errors' => [[
-                    'title' => trans('lang::messages.common.notFoundError'),
-                    'detail' => $e->getMessage() ?: ('An exception of ' . get_class($e)),
-                ]],
+                'errors' => [
+                    [
+                        'title' => trans('lang::messages.common.notFoundError'),
+                        'detail' => $e->getMessage() ?: ('An exception of ' . get_class($e)),
+                    ],
+                ],
             ]);
         }
 

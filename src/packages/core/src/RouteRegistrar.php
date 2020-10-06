@@ -52,7 +52,7 @@ class RouteRegistrar
         };
 
         $defaultOptions = [
-            'namespace' => static::$namespace
+            'namespace' => static::$namespace,
         ];
 
         $options = array_merge($defaultOptions, $options);
