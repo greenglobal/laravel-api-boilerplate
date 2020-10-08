@@ -1,6 +1,6 @@
 ﻿# [Laravel API Boilerplate](https://github.com/greenglobal/laravel-api-boilerplate)
 
-## Maintained by: [KUN](https://github.com/kun391)
+[![Actions Status](https://github.com/greenglobal/laravel-api-boilerplate/workflows/Build/badge.svg)](https://github.com/greenglobal/laravel-api-boilerplate/actions)
 
 The api boilerplate build on Laravel 8, this using to start a project with api faster.
 
@@ -57,6 +57,10 @@ The api boilerplate build on Laravel 8, this using to start a project with api f
 > cz
 
 > git push to branch
+
+---
+
+## Maintained by: [KUN](https://github.com/kun391)
 
 ---
 
