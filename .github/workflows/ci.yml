@@ -1,0 +1,19 @@
+name: Actions Workflow - Unit test & linter
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Touch .env
+        run: cp .env.dev .env
+      - name: Up container
+        run: docker-compose up -d
+      - name: Install package
+        run: docker-compose exec -T api composer install
+      - name: generate key
+        run: docker-compose exec -T api composer install
+      - name: process linter
+        run: docker-compose exec -T api composer lint
+      - name: process unit test
+        run: docker-compose exec -T api composer lint
