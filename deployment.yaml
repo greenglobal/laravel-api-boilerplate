@@ -1,14 +1,13 @@
 version: '3'
 services:
   # container for API
-  app:
+  api:
     extends:
       file: ./deployment/common.yaml
-      service: app
+      service: api
     ports:
-      - "80:80"
-      - "8080:8080"
-      - "443:443"
+      - ${API_HTTP_PORT}:80
+      - ${API_HTTPS_PORT}:443
   db:
     extends:
       file: ./deployment/common.yaml
