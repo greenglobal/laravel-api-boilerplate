@@ -11,10 +11,10 @@ jobs:
         run: docker-compose -f github-ci.yaml up -d
       - name: Install package
         run: docker-compose -f github-ci.yaml exec -T api composer install
-      - name: generate key
-        run: docker-compose -f github-ci.yaml exec -T api php artisan key:generate
       - name: touch api .env
         run: docker-compose -f github-ci.yaml exec -T api cp .env.example .env
+      - name: generate key
+        run: docker-compose -f github-ci.yaml exec -T api php artisan key:generate
       - name: Testing about migrate
         run: docker-compose -f github-ci.yaml exec -T api php artisan migrate
       - name: process linter
