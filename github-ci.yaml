@@ -1,0 +1,11 @@
+version: '3'
+services:
+  # container for API
+  api:
+    extends:
+      file: ./deployment/common.yaml
+      service: api
+  db:
+    extends:
+      file: ./deployment/common.yaml
+      service: db
