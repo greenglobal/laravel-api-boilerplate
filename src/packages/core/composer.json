@@ -1,11 +1,11 @@
 {
-    "name": "kun391/users",
-    "description": "A Package for management users with jsonapi specification",
+    "name": "ggphp/core",
+    "description": "A Package for write core boilerplate with jsonapi specification",
     "keywords": [
         "kun391",
-        "users"
+        "core"
     ],
-    "homepage": "https://github.com/kun391/users",
+    "homepage": "https://github.com/kun391/core",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -16,39 +16,39 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "phpunit/phpunit": "^8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Kun391\\Users\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Kun391\\Users\\Tests\\": "tests"
-        }
+        "php": "^7.4",
+        "illuminate/support": "^8.0",
+        "prettus/l5-repository": "^2.6"
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
 
     },
-    "config": {
-        "sort-packages": true
+    "autoload": {
+        "psr-4": {
+            "GGPHP\\Core\\": "src/" 
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GGPHP\\Core\\Tests\\": "tests/"
+        }
     },
     "extra": {
         "laravel": {
+            "dont-discover": [],
             "providers": [
-                "Kun391\\Users\\UsersServiceProvider"
+                "GGPHP\\Core\\Providers\\CoreProvider"
             ],
             "aliases": {
-                "Users": "Kun391\\Users\\UsersFacade"
+                "Core": "GGPHP\\Core\\CoreFacade"
             }
         }
-    }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

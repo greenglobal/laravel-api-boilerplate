@@ -47,5 +47,14 @@ class CoreProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
+        if (!$this->app->isLocal()) {
+            if (class_exists(Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class)) {
+                $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            }
+            
+            if (class_exists(Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class)) {
+                $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+            }
+        }
     }
 }
