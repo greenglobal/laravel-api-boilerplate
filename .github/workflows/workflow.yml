@@ -20,4 +20,9 @@ jobs:
       - name: process linter
         run: docker-compose -f github-ci.yaml exec -T api composer lint
       - name: run unit test
-        run: docker-compose -f github-ci.yaml exec -T api composer test
+        run: docker-compose -f github-ci.yaml exec -T api vendor/bin/phpunit --coverage-clover coverage.xml
+      - uses: actions/checkout@v2
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+            file: ./coverage.xml
