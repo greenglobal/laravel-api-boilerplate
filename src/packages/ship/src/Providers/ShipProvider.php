@@ -1,10 +1,10 @@
 <?php
 
-namespace GGPHP\Core\Providers;
+namespace GGPHP\Ship\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class CoreProvider extends ServiceProvider
+class ShipProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -19,9 +19,9 @@ class CoreProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->publishes([
-            __DIR__.'/../../config/config.php' => config_path('core.php'),
+            __DIR__.'/../../config/config.php' => config_path('ship.php'),
         ]);
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'core');
+        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'ship');
         // Publishing the views.
         /*$this->publishes([
         __DIR__.'/../resources/views' => resource_path('views/vendor/users'),
@@ -46,6 +46,15 @@ class CoreProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Automatically apply the package configuration
+        if (!$this->app->isLocal()) {
+            if (class_exists(\Laravel\Telescope\TelescopeServiceProvider::class)) {
+                $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            }
+            
+            if (class_exists(Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class)) {
+                $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+            }
+        }
     }
 }

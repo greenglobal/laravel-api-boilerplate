@@ -1,0 +1,54 @@
+{
+    "name": "ggphp/ship",
+    "description": "A Package for write core boilerplate with jsonapi specification",
+    "keywords": [
+        "kun391",
+        "ship"
+    ],
+    "homepage": "https://github.com/kun391/core",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kun",
+            "email": "nguyentruongthanh.dn@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "illuminate/support": "^8.0",
+        "prettus/l5-repository": "^2.6"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "GGPHP\\Ship\\": "src/" 
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GGPHP\\Ship\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [],
+            "providers": [
+                "GGPHP\\Ship\\Providers\\ShipProvider"
+            ],
+            "aliases": {
+                "Core": "GGPHP\\Ship\\ShipFacade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
