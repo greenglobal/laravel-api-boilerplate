@@ -20,49 +20,53 @@ The api boilerplate build on Laravel 8, this using to start a project with api f
 
 6. cz-cli - Support convention of message when commit to repo. Install following the [guide](https://github.com/commitizen/cz-cli)
 
----
+## Installation
 
-## Tutorial
+### Start web server with docker-compose (https)
 
-### 1. Start web server with docker-compose (https)
+```bash
+docker-compose up -d
 
-> docker-compose up -d
+docker-compose exec -T <service_api_name> cp .env.example .env
 
-> docker-compose exec <container_app_name> cp .env.example .env
+docker-compose exec -T <service_api_name> composer install
 
-> docker-compose exec <container_app_name> composer install
+docker-compose exec -T <service_api_name> php artisan key:generate
 
-> docker-compose exec <container_app_name> php artisan key:generate
+docker-compose exec -T <service_api_name> php artisan migrate --seed
+```
 
-> docker-compose exec <container_app_name> php artisan migrate --seed
+### Run test & linter
 
-### 2. Run test & linter
+```bash
+docker-compose exec -T <service_api_name> vendor/bin/phpunit
 
-> docker-compose exec <container_app_name> vendor/bin/phpunit
+docker-compose exec -T <service_api_name> vendor/bin/phpcs
+```
 
-> docker-compose exec <container_app_name> vendor/bin/phpcs
+### Run fixer for coding style
 
-### 3. Run fixer for coding style
+```bash
+docker-compose exec -T <service_api_name> vendor/bin/phpcbf
+```
 
-> docker-compose exec <container_app_name> vendor/bin/phpcbf
+### Run command line to update changelogs following [standard-version](https://github.com/conventional-changelog/standard-version)
 
-### 4. Run command line to update changelogs following [standard-version](https://github.com/conventional-changelog/standard-version)
+```bash
+yarn release -- --prerelease
+```
 
-> yarn release -- --prerelease
+### Commit an task follow cz-cli
 
-### 5. Commit an task
+```bash
+git add </file>
 
-> git add </file>
+cz
 
-> cz
-
-> git push to branch
-
----
+git push to branch
+```
 
 ## Maintained by: [KUN](https://github.com/kun391)
-
----
 
 ## License
 

@@ -1,31 +1,36 @@
 {
-    "private": true,
-    "devDependencies": {
-        "@commitlint/cli": "^11.0.0",
-        "@commitlint/config-conventional": "^11.0.0",
-        "cross-env": "^7.0",
-        "cz-conventional-changelog": "^3.3.0",
-        "husky": "^4.3.0",
-        "standard-version": "^9.0.0"
-    },
-    "scripts": {
-        "release": "standard-version"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
-    },
-    "husky": {
-        "hooks": {
-            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-        }
-    },
-    "standard-version": {
-        "skip": {
-            "tag": true,
-            "commit": true
-        }
-    },
-    "version": "1.2.0-0"
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "cross-env": "^7.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^4.3.0",
+    "standard-version": "^9.0.0"
+  },
+  "scripts": {
+    "release": "standard-version"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
+  },
+  "version": "1.2.0-0"
 }
