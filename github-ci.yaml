@@ -5,6 +5,8 @@ services:
     extends:
       file: ./deployment/common.yaml
       service: api
+    depends_on:
+      - db
   db:
     extends:
       file: ./deployment/common.yaml

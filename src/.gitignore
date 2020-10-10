@@ -3,6 +3,7 @@
 /public/storage
 /public/vendor
 /storage/*.key
+**/.DS_Store
 /vendor
 .env
 .env.backup
