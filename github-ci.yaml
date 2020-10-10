@@ -7,6 +7,8 @@ services:
       service: api
     depends_on:
       - db
+    environment:
+      - ENABLE_XDEBUG=1
   db:
     extends:
       file: ./deployment/common.yaml

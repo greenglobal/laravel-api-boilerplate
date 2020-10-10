@@ -27,6 +27,8 @@ services:
       - "traefik.http.routers.api.rule=Host(`localhost`)"
       # Activation of TLS
       - "traefik.http.routers.api.tls=true"
+    environment:
+      - ENABLE_XDEBUG=1
   db:
     extends:
       file: ./deployment/common.yaml
