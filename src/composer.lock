@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a6f25ff7ccbc0526c4a41d435359d38",
+    "content-hash": "3762d719dc1590dfd40ede8eaeb96026",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -555,19 +555,17 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/core",
-                "reference": "33c97f995c0ebd9f7fb3f0849090f1e5d9f35fc7"
+                "reference": "2d82150c03b25e19b26ed819a9f47a55f122949e"
             },
             "require": {
                 "illuminate/support": "^8.0",
-                "php": "^7.4"
+                "php": "^7.4",
+                "prettus/l5-repository": "^2.6"
             },
             "type": "library",
             "extra": {
                 "laravel": {
                     "dont-discover": [],
-                    "providers": [
-                        "GGPHP\\Core\\Providers\\CoreProvider"
-                    ],
                     "aliases": {
                         "Core": "GGPHP\\Core\\CoreFacade"
                     }
@@ -597,15 +595,14 @@
             "authors": [
                 {
                     "name": "Kun",
-                    "email": "nguyentruongthanh.dn@gmail.com",
-                    "role": "Developer"
+                    "email": "nguyentruongthanh.dn@gmail.com"
                 }
             ],
             "description": "A Package for write core boilerplate with jsonapi specification",
-            "homepage": "https://github.com/kun391/core",
+            "homepage": "https://github.com/greenglobal/laravel-core",
             "keywords": [
                 "core",
-                "kun391"
+                "ggphp"
             ],
             "transport-options": {
                 "relative": true
@@ -675,23 +672,23 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.1.1",
+            "version": "7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "7427d6f99df41cc01f33cd59832f721c150ffdf3"
+                "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/7427d6f99df41cc01f33cd59832f721c150ffdf3",
-                "reference": "7427d6f99df41cc01f33cd59832f721c150ffdf3",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0aa74dfb41ae110835923ef10a9d803a22d50e79",
+                "reference": "0aa74dfb41ae110835923ef10a9d803a22d50e79",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^1.0",
-                "guzzlehttp/psr7": "^1.6.1",
-                "php": "^7.2.5",
+                "guzzlehttp/promises": "^1.4",
+                "guzzlehttp/psr7": "^1.7",
+                "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0"
             },
             "provide": {
@@ -699,8 +696,8 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "php-http/client-integration-tests": "dev-phpunit8",
-                "phpunit/phpunit": "^8.5.5",
+                "php-http/client-integration-tests": "^3.0",
+                "phpunit/phpunit": "^8.5.5 || ^9.3.5",
                 "psr/log": "^1.1"
             },
             "suggest": {
@@ -769,7 +766,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-30T08:51:17+00:00"
+            "time": "2020-10-10T11:47:56+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -892,6 +889,68 @@
                 "url"
             ],
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "kun391/jsonapi",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./packages/jsonapi",
+                "reference": "4236f03df79f8b894451c37f00df92aa477ab24a"
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.4",
+                "prettus/l5-repository": "^2.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "dont-discover": [],
+                    "providers": [
+                        "Kun391\\JsonApi\\Providers\\JsonApiProvider"
+                    ],
+                    "aliases": {
+                        "JsonApi": "Kun391\\JsonApi\\JsonApiFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kun391\\JsonApi\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Kun391\\JsonApi\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kun",
+                    "email": "nguyentruongthanh.dn@gmail.com"
+                }
+            ],
+            "description": "A Package for write core boilerplate with jsonapi specification",
+            "homepage": "https://github.com/kun391/jsonapi",
+            "keywords": [
+                "jsonapi",
+                "kun391"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "laravel/framework",
@@ -1450,16 +1509,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.41.0",
+            "version": "2.41.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "8690b13ad4da6d54d692afea15aab30b36fee52e"
+                "reference": "91d8d8dca31936a137213d7c48f8ac981e501ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8690b13ad4da6d54d692afea15aab30b36fee52e",
-                "reference": "8690b13ad4da6d54d692afea15aab30b36fee52e",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/91d8d8dca31936a137213d7c48f8ac981e501ff4",
+                "reference": "91d8d8dca31936a137213d7c48f8ac981e501ff4",
                 "shasum": ""
             },
             "require": {
@@ -1535,7 +1594,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-04T09:11:05+00:00"
+            "time": "2020-10-10T11:06:56+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1759,6 +1818,115 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "prettus/l5-repository",
+            "version": "2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/l5-repository.git",
+                "reference": "6098dbcb83e360800d7d8b830e33d628d2df86f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/6098dbcb83e360800d7d8b830e33d628d2df86f4",
+                "reference": "6098dbcb83e360800d7d8b830e33d628d2df86f4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/console": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/database": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/filesystem": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/http": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/pagination": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/support": "~5.0|~6.0|~7.0|^8.0",
+                "illuminate/validation": "~5.0|~6.0|~7.0|^8.0",
+                "prettus/laravel-validation": "~1.1|~1.2"
+            },
+            "suggest": {
+                "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
+                "prettus/laravel-validation": "Required to provide easy validation with the repository (1.1.*)",
+                "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Prettus\\Repository\\Providers\\RepositoryServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Repository\\": "src/Prettus/Repository/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de",
+                    "homepage": "http://andersonandra.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5|6|7|8 - Repositories to  the database layer",
+            "homepage": "http://andersao.github.io/l5-repository",
+            "keywords": [
+                "cache",
+                "eloquent",
+                "laravel",
+                "model",
+                "repository"
+            ],
+            "time": "2020-09-21T20:19:28+00:00"
+        },
+        {
+            "name": "prettus/laravel-validation",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/laravel-validator.git",
+                "reference": "cce3c273c9d44f77de031dc4dedd261ab936c497"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/cce3c273c9d44f77de031dc4dedd261ab936c497",
+                "reference": "cce3c273c9d44f77de031dc4dedd261ab936c497",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.4|^6.0|^7.0|^8.0",
+                "illuminate/validation": "~5.4|^6.0|^7.0|^8.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Validator\\": "src/Prettus/Validator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de",
+                    "homepage": "http://andersonandra.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel Validation Service",
+            "homepage": "http://andersao.github.io/laravel-validation",
+            "keywords": [
+                "laravel",
+                "service",
+                "validation"
+            ],
+            "time": "2020-09-21T20:20:45+00:00"
         },
         {
             "name": "psr/container",
@@ -2316,6 +2484,92 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "spatie/laravel-activitylog",
+            "version": "3.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-activitylog.git",
+                "reference": "a01fce5f3011c8b7eac86b18e2121da55f0564cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/a01fce5f3011c8b7eac86b18e2121da55f0564cd",
+                "reference": "a01fce5f3011c8b7eac86b18e2121da55f0564cd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Activitylog\\ActivitylogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Activitylog\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A very simple activity logger to monitor the users of your website or application",
+            "homepage": "https://github.com/spatie/activitylog",
+            "keywords": [
+                "activity",
+                "laravel",
+                "log",
+                "spatie",
+                "user"
+            ],
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-09-16T15:28:13+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8329,7 +8583,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ggphp/core": 20
+        "ggphp/core": 20,
+        "kun391/jsonapi": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

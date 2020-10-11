@@ -1,6 +1,6 @@
 <?php
 
-namespace GGPHP\Core\Http\Controllers;
+namespace Kun391\JsonApi\Http\Controllers;
 
 use GGPHP\Core\Traits\ResponseTrait;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;

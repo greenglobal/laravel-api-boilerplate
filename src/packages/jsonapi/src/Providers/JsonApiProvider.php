@@ -1,10 +1,10 @@
 <?php
 
-namespace GGPHP\Core\Providers;
+namespace Kun391\JsonApi\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class CoreProvider extends ServiceProvider
+class JsonApiProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -19,26 +19,16 @@ class CoreProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->publishes([
-            __DIR__.'/../../config/config.php' => config_path('core.php'),
+            __DIR__.'/../../config/config.php' => config_path('jsonapi.php'),
         ]);
-        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'core');
+        $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'jsonapi');
         // Publishing the views.
-        /*$this->publishes([
-        __DIR__.'/../resources/views' => resource_path('views/vendor/users'),
-        ], 'views');*/
-
+        
         // Publishing assets.
-        /*$this->publishes([
-        __DIR__.'/../resources/assets' => public_path('vendor/users'),
-        ], 'assets');*/
-
+     
         // Publishing the translation files.
-        /*$this->publishes([
-        __DIR__.'/../resources/lang' => resource_path('lang/vendor/users'),
-        ], 'lang');*/
-
+       
         // Registering package commands.
-        // $this->commands([]);
     }
 
     /**

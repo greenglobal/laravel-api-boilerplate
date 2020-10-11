@@ -1,11 +1,11 @@
 {
-    "name": "ggphp/core",
+    "name": "kun391/jsonapi",
     "description": "A Package for write core boilerplate with jsonapi specification",
     "keywords": [
-        "ggphp",
-        "core"
+        "kun391",
+        "jsonapi"
     ],
-    "homepage": "https://github.com/greenglobal/laravel-core",
+    "homepage": "https://github.com/kun391/jsonapi",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -26,19 +26,22 @@
     },
     "autoload": {
         "psr-4": {
-            "GGPHP\\Core\\": "src/" 
+            "Kun391\\JsonApi\\": "src/" 
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "GGPHP\\Core\\Tests\\": "tests/"
+            "Kun391\\JsonApi\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "dont-discover": [],
+            "providers": [
+                "Kun391\\JsonApi\\Providers\\JsonApiProvider"
+            ],
             "aliases": {
-                "Core": "GGPHP\\Core\\CoreFacade"
+                "JsonApi": "Kun391\\JsonApi\\JsonApiFacade"
             }
         }
     },

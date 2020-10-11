@@ -15,6 +15,11 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "mysql -uroot -proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
   # container for UI database management
   pma:
     image: ${DOCKER_IMAGE_PMA}
