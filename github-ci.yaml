@@ -5,6 +5,13 @@ services:
     extends:
       file: ./deployment/common.yaml
       service: api
+    environment:
+      - ENABLE_XDEBUG=1
+    depends_on:
+      db:
+        condition: service_started
+    environment:
+      - ENABLE_XDEBUG=1
   db:
     extends:
       file: ./deployment/common.yaml

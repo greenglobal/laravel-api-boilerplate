@@ -11,6 +11,10 @@
         {
             "type": "path",
             "url": "./packages/core/"
+        },
+        {
+            "type": "path",
+            "url": "./packages/jsonapi/"
         }
     ],
     "require": {
@@ -21,7 +25,8 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "spatie/laravel-activitylog": "^3.14",
-        "ggphp/core": "dev-master"
+        "ggphp/core": "dev-master",
+        "kun391/jsonapi": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
@@ -42,7 +47,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "GGPHP\\Ship\\": "packages/ship/src"
         }
     },
     "extra": {

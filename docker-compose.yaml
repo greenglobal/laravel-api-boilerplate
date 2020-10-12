@@ -27,6 +27,12 @@ services:
       - "traefik.http.routers.api.rule=Host(`localhost`)"
       # Activation of TLS
       - "traefik.http.routers.api.tls=true"
+    environment:
+      - ENABLE_XDEBUG=1
+      - COMPOSER_MEMORY_LIMIT=-1
+    depends_on:
+      db:
+        condition: service_started
   db:
     extends:
       file: ./deployment/common.yaml
@@ -36,4 +42,5 @@ services:
       file: ./deployment/common.yaml
       service: pma
     depends_on:
-      - db
+      db:
+        condition: service_started
