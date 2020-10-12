@@ -22,6 +22,9 @@ class ShipProvider extends ServiceProvider
             __DIR__.'/../../config/config.php' => config_path('ship.php'),
         ]);
         $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'ship');
+        
+        // Register routes
+        $this->registerRoutes();
         // Publishing the views.
         /*$this->publishes([
         __DIR__.'/../resources/views' => resource_path('views/vendor/users'),
@@ -55,6 +58,30 @@ class ShipProvider extends ServiceProvider
             if (class_exists(Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class)) {
                 $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
             }
+        }
+    }
+
+    /**
+     * Register the package routes.
+     *
+     * @return void
+     */
+    private function registerRoutes()
+    {
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRouteRegistrarFrom(__DIR__.'/RouteRegistrar.php');
+        });
+    }
+
+    /**
+     * Get the registrar route from file.
+     *
+     * @return array
+     */
+    private function loadRouteRegistrarFrom($path)
+    {
+        if (class_exists($path)) {
+            return $path::routes();
         }
     }
 }

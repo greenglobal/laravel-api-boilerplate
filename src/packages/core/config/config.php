@@ -7,4 +7,7 @@ return [
     /*
      * Definition configuaration in core
      */
+    'containers' => [
+        'namespace' => 'packages/containers'
+    ]
 ];
